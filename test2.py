@@ -66,10 +66,18 @@ def draw_cards(screen, card_images, card_paths, x_start, y):
         screen.blit(card_images[card], (start_x + i * (CARD_WIDTH + card_spacing), y))
 
 
-
 def draw_text(screen, text, x, y):
-    text_surface = FONT.render(text, True, (255, 255, 255))
+    # Render the text
+    text_surface = FONT.render(text, True, (0, 0, 0))
     text_rect = text_surface.get_rect(center=(x, y))
+
+    # Define the background rectangle
+    background_rect = text_rect.inflate(20, 10)  # Increase the size of the background rectangle
+
+    # Draw the background rectangle
+    pygame.draw.rect(screen, (255, 255, 255), background_rect)
+
+    # Draw the text on top of the background
     screen.blit(text_surface, text_rect)
 
 
@@ -108,8 +116,15 @@ deck_of_cards = [
 card_images = load_card_images(deck_of_cards)
 shuffled_deck, player_hand, dealer_hand = reset_game(deck_of_cards)
 
+# Załadowanie przycisku z pytaniem
+button_image = pygame.image.load('question.png')
+button_image = pygame.transform.scale(button_image, (100, 50))  # Możesz dostosować rozmiar
+button_rect = button_image.get_rect(bottomright=(SCREEN_WIDTH - 10, SCREEN_HEIGHT - 10))
+
+
 game_over = False
 player_turn = True
+display_text = False
 
 # Główna pętla gry
 running = True
@@ -117,6 +132,9 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if button_rect.collidepoint(event.pos):  # Sprawdzenie, czy kliknięto w przycisk
+                display_text = not display_text  # Zmiana stanu wyświetlania tekstu
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_h and player_turn and not game_over:  # Hit
                 player_hand.append(shuffled_deck.pop())
@@ -155,7 +173,14 @@ while running:
 
     if not game_over:
         # Wyświetlanie komend
-        draw_text(screen, 'H for hit, S for stand, R to restart', SCREEN_WIDTH / 2, SCREEN_HEIGHT - 50)
+        draw_text(screen, 'H for hit, S for stand, R to restart', 440, 315)
+    if display_text:
+        # Rysowanie białego prostokąta
+        pygame.draw.rect(screen, (255, 255, 255), (100, 100, 400, 100))
+        # Możesz dodać wyświetlanie tekstu tu, jeśli chcesz, żeby był od razu widoczny
+
+    # Rysowanie przycisku (zawsze na wierzchu)
+    screen.blit(button_image, button_rect)
 
     pygame.display.update()
 
