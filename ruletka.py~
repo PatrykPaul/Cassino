@@ -4,11 +4,9 @@ from create_player import Player, PLAYER_SIZE_W, PLAYER_SIZE_H
 python_path = "C:/Users/patry/PycharmProjects/kasyno/c/Scripts/python.exe"
 script_path = "Black_Jack.py"
 
-# Constants
 SCREEN_WIDTH = 1450
 SCREEN_HEIGHT = 768
 
-# Lokalizacje stołów i obszary interakcji
 TABLE_RECTS = [
     pygame.Rect(120, 80, 510, 250),
     pygame.Rect(800, 80, 510, 250),
@@ -16,11 +14,9 @@ TABLE_RECTS = [
     pygame.Rect(830, 430, 510, 250)
 ]
 
-# Load button image
 button_image = pygame.image.load('przycisk.png')  # Make sure the button image file exists
 
 
-# Button class
 class ImageButton:
     def __init__(self, center_pos, image, scale=0.20):
         self.original_image = image
