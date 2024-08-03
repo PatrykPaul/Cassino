@@ -5,7 +5,7 @@
 The Casino Game Project is a suite of interactive applications that introduce the player to various casino games. The main menu allows the player to choose between blackjack and roulette. The game also manages sound and displays player money information.
 
 ## Start Menu
-![main](https://github.com/user-attachments/assets/290e539c-afd6-4ea3-9585-dac4c334484e)
+![mm](https://github.com/user-attachments/assets/c7a6c14d-99e7-48e4-9972-13bd19390af0)
 
 The start menu is the user interface that lets the player select one of two casino games: blackjack or roulette. The main screen includes the game logo, a button to start the roulette game, a sound management button, and an exit button. The game also displays the player's current money balance and allows for displaying information about blackjack rules.
 
@@ -19,8 +19,11 @@ The start menu is the user interface that lets the player select one of two casi
 - **run_roulette**: A function to launch the roulette application.
 
 ## Blackjack
-
 **Blackjack** is a popular card game where the goal is to get as close to 21 points as possible without going over. The player aims to have a better hand than the dealer without exceeding 21 points.
+![bj](https://github.com/user-attachments/assets/7cd090c5-1c0b-4a83-9916-0443a7172cc6)
+![bjb](https://github.com/user-attachments/assets/712cd494-9120-4aaa-a8ef-5675f16d7569)
+![bjg](https://github.com/user-attachments/assets/cfd7b516-cf28-407f-95e2-be4f1ecda44a)
+
 
 In the Blackjack application:
 
@@ -30,6 +33,7 @@ In the Blackjack application:
 ## Roulette
 
 **Roulette** is a casino game where players place bets on numbers, colors, or groups of numbers. The roulette wheel is spun, and a ball lands on one of the numbers. Winning depends on whether the result of the spin matches the player's bet.
+![rg](https://github.com/user-attachments/assets/d82e1c42-a3d3-42c6-a2ab-d91cabf168f0)
 
 In the Roulette application:
 
